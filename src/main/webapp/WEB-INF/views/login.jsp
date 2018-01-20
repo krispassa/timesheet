@@ -28,6 +28,7 @@
 		
 		</form>
 		${error}
-	</div>
+	</div>	
+	
 </body>
 </html>

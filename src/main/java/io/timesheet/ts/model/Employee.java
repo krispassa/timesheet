@@ -11,7 +11,6 @@ public class Employee {
 	private String startTime;
 	private String endTime;
 	private double totalhrs;
-	private double totalSalary;
 	private double payRate;
 	public Employee() {}
 	public Employee(String eID, String fname, String lname, String address, String startTime, String endTime,
