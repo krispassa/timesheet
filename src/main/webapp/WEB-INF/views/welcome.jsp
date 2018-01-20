@@ -4,11 +4,35 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>Employee detail</title>
 </head>
 <body>
 
-<h1> Welcome page</h1>
-${welcomemsg }
+<h1> Welcome ${afterlogin.fname }</h1>
+
+
+<table>
+  <tr>
+    <th>Employee ID</th>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Address</th>
+    <th>Start</th>
+    <th>End</th>
+    <th>Total Hours</th>
+    <th>Total Amount</th>
+  </tr>
+  <tr>
+    <td>${afterlogin.eID}</td>
+    <td>${afterlogin.fname }</td>
+    <td>${afterlogin.lname }</td>
+    <td>${afterlogin.address }</td>
+    <td>${afterlogin.startTime }</td>
+    <td>${afterlogin.endTime }</td>
+    <td>${afterlogin.totalhrs }</td>
+    <td>${afterlogin.totalSalary }</td>
+  </tr>
+  
+</table>
 </body>
 </html>
