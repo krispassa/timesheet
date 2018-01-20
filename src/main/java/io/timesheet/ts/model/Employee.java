@@ -12,9 +12,10 @@ public class Employee {
 	private String endTime;
 	private double totalhrs;
 	private double totalSalary;
+	private double payRate;
 	public Employee() {}
 	public Employee(String eID, String fname, String lname, String address, String startTime, String endTime,
-			double totalhrs, double totalSalary) {
+			double totalhrs) {
 		this.eID = eID;
 		this.fname = fname;
 		this.lname = lname;
@@ -22,7 +23,6 @@ public class Employee {
 		this.startTime = startTime;
 		this.endTime = endTime;
 		this.totalhrs = totalhrs;
-		this.totalSalary = totalSalary;
 	}
 	public String geteID() {
 		return eID;
@@ -60,6 +60,12 @@ public class Employee {
 	public void setEndTime(String endTime) {
 		this.endTime = endTime;
 	}
+	public double getPayRate() {
+		return payRate;
+	}
+	public void setPayRate(double payRate) {
+		this.payRate = payRate;
+	}
 	public double getTotalhrs() {
 		return totalhrs;
 	}
@@ -67,10 +73,8 @@ public class Employee {
 		this.totalhrs = totalhrs;
 	}
 	public double getTotalSalary() {
-		return totalSalary;
-	}
-	public void setTotalSalary(double totalSalary) {
-		this.totalSalary = totalSalary;
+		double totalamt = getPayRate() * getTotalhrs();
+		return totalamt;
 	}
 	
 	

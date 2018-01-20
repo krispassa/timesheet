@@ -29,6 +29,7 @@ public class LoginController {
 		else
 		{
 			model.addAttribute("error", "Bad Credentials");
+			System.out.println(employee.getTotalSalary());
 			return "login";
 		}
 		
@@ -38,6 +39,8 @@ public class LoginController {
 		employee.setFname("John");
 		employee.setLname("Doe");
 		employee.setAddress("420 High St");
+		employee.setPayRate(40.00);
+		employee.setTotalhrs(70);
 		
 		return employee;
 	}
