@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import io.timesheet.ts.auth.Auth;
 import io.timesheet.ts.model.Employee;
 
 @Controller
@@ -13,6 +14,9 @@ public class LoginController {
 
 	@Autowired
 	private Employee employee;
+	
+	@Autowired
+	private Auth auth;
 
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public String getLoginPage() {
@@ -21,7 +25,7 @@ public class LoginController {
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public String loginFormPost(@RequestParam String username, @RequestParam String password, Model model) {
 		
-		if(checkCreds(username,password))
+		if(auth.checkCreds(username,password))
 		{
 			model.addAttribute("afterlogin", this.populateEmployee());
 			return "welcome";
@@ -44,14 +48,5 @@ public class LoginController {
 		
 		return employee;
 	}
-	private boolean checkCreds(String username, String password) {
-		
-		if("admin".equals(username) && "admin".equals(password))
-		{
-			return true;
-		}
-			
-		else
-			return false;
-	}
+	
 }
