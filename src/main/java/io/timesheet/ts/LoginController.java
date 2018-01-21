@@ -5,10 +5,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-
 import io.timesheet.ts.auth.Auth;
 import io.timesheet.ts.model.Employee;
-
 @Controller
 public class LoginController {
 
@@ -45,7 +43,6 @@ public class LoginController {
 		employee.setAddress("420 High St");
 		employee.setPayRate(40.00);
 		employee.setTotalhrs(70);
-		
 		return employee;
 	}
 	
