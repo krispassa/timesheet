@@ -9,7 +9,7 @@ import io.timesheet.ts.auth.Auth;
 import io.timesheet.ts.model.Employee;
 @Controller
 public class LoginController {
-
+ 
 	@Autowired
 	private Employee employee;
 	
@@ -26,15 +26,14 @@ public class LoginController {
 		if(auth.checkCreds(username,password))
 		{
 			model.addAttribute("afterlogin", this.populateEmployee());
+			System.out.println(employee.getTotalSalary());
 			return "welcome";
 		}
 		else
 		{
 			model.addAttribute("error", "Bad Credentials");
-			System.out.println(employee.getTotalSalary());
 			return "login";
-		}
-		
+		}		
 	}
 	private Employee populateEmployee() {
 		employee.seteID("007");

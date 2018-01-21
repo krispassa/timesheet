@@ -1,5 +1,6 @@
 package io.timesheet.ts.model;
 
+
 import org.springframework.stereotype.Component;
 
 @Component
