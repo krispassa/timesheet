@@ -1,29 +1,36 @@
 package io.timesheet.ts.model;
 
 
-import org.springframework.stereotype.Component;
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import org.hibernate.annotations.DynamicUpdate;
 
-@Component
+//@Component
+@DynamicUpdate
+@Table(name="employee")
 public class Employee {
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "eid")
 	private String eID;
+	@Column(name = "first_name")
 	private String fname;
+	@Column(name = "last_name")
 	private String lname;
+	@Column(name = "address")
 	private String address;
+	@Column(name = "start_time")
 	private String startTime;
+	@Column(name = "end_time")
 	private String endTime;
+	@Column(name = "total_hrs")
 	private double totalhrs;
+	@Column(name = "pay_rate")
 	private double payRate;
 	public Employee() {}
-	public Employee(String eID, String fname, String lname, String address, String startTime, String endTime,
-			double totalhrs) {
-		this.eID = eID;
-		this.fname = fname;
-		this.lname = lname;
-		this.address = address;
-		this.startTime = startTime;
-		this.endTime = endTime;
-		this.totalhrs = totalhrs;
-	}
 	public String geteID() {
 		return eID;
 	}

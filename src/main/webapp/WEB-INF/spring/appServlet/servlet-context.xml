@@ -11,7 +11,6 @@
 	
 	<!-- Enables the Spring MVC @Controller programming model -->
 	<annotation-driven />
-
 	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
 	<resources mapping="/resources/**" location="/resources/" />
 
@@ -20,9 +19,28 @@
 		<beans:property name="prefix" value="/WEB-INF/views/" />
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
-	
 	<context:component-scan base-package="io.timesheet.ts" />
 	
+	 <beans:bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
+		destroy-method="close">
+		<beans:property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<beans:property name="url" value="jdbc:mysql://mycollection-db.cw0za9eki65f.us-east-1.rds.amazonaws.com/StudentDB" />
+		<beans:property name="username" value="mycollection_db" />
+		<beans:property name="password" value="mycollection_db2" />
+	</beans:bean>
 	
 	
+	<beans:bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+      <beans:property name="dataSource" ref="dataSource" />
+      <beans:property name="packagesToScan" value="io.timesheet.ts.model"/> 
+      <beans:property name="hibernateProperties">
+         <beans:props>
+            <beans:prop key="hibernate.hbm2ddl.auto">create</beans:prop>
+            <beans:prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</beans:prop>
+         </beans:props>
+      </beans:property>
+   </beans:bean>
+	<beans:bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+      <beans:property name="sessionFactory" ref="sessionFactory" />
+   </beans:bean> 
 </beans:beans>

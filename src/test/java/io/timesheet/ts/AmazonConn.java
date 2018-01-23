@@ -20,13 +20,13 @@ public class AmazonConn {
             if (conn != null) 
             {
             	Statement st = conn.createStatement();
-                String query = "select * from employee where id=1";
+                String query = "select * from employee where eid=1";
                 ResultSet result = st.executeQuery(query);
                 if (!result.next()) {
                     name = "Couldn't get Name from Database";
                     
                 } else {
-                    name = result.getString("fname") + " " + result.getString("lname") + " "+ result.getString("address");
+                    name = result.getString("first_name") + " " + result.getString("last_name") + " "+ result.getString("address");
                 }
                 st.close();
                 System.out.println("Connected to the database");

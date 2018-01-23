@@ -2,18 +2,28 @@ package io.timesheet.ts.dao;
 
 import java.util.List;
 
+import javax.persistence.TypedQuery;
+
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
+
+import io.timesheet.ts.auth.Auth;
 import io.timesheet.ts.model.Employee;
 
-
+@Repository
 public class EmployeeDAOImpl implements EmployeeDAO {
 
-	//private SessionFactory sessionfactory;
+	@Autowired
+	private SessionFactory sessionfactory;
 	@Override
-	public List<Employee> getAllStudent() {
+	public List<Employee> getAllEmployee() {
 		
 		
-		//return sessionfactory.getCurrentSession().get(Employee.class);
-		return null;
+		TypedQuery<Employee> query=(TypedQuery<Employee>) sessionfactory.getCurrentSession().createQuery("from employee");
+		//return (List<Employee>) sessionfactory.getCurrentSession().createQuery("from employee");
+		return query.getResultList();
 	}
 
 	@Override
@@ -24,7 +34,7 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 
 	@Override
 	public void addEmployee(Employee emp) {
-		
+		sessionfactory.getCurrentSession().save(emp);
 
 	}
 
@@ -39,5 +49,6 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 		
 
 	}
+
 
 }

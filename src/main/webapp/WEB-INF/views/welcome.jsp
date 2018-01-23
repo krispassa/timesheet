@@ -83,7 +83,7 @@ table th {
 </head>
 <body>
 
-<h1> Welcome ${afterlogin.fname }</h1>
+<h1> ${afterlogin}</h1>
 
 
 <table>
@@ -103,10 +103,7 @@ table th {
   </thead>
   <tbody>
     <tr>
-      <td data-label="Account">${afterlogin.eID}</td>
-      <td data-label="Due Date">${afterlogin.fname}</td>
-      <td data-label="Amount">${afterlogin.lname}</td>
-      <td data-label="Period">${afterlogin.address}</td>
+      ${afterlogin}
     </tr>
   </tbody>
 </table>

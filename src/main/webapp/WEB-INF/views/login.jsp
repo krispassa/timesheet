@@ -13,20 +13,15 @@
 <div align="center">
 		<h1>Employee Login</h1>
 
-		<form action="login" method="POST">
-		<div>
-			<label>User Name</label>
-			<input type="text" id="username" name="username"/>
-		</div>
-		
-		<div>
-			<label>Password</label>
-			<input type="password" id="password" name="password"/>
-		</div>
-		
-		<button id="studentLoginBtn"> Login </button>
-		
-		</form>
+		<form:form method="POST" action="login" modelAttribute="loginAttribute">
+		    <form:label path="username">username</form:label>
+		    <form:input path="username" type="text"/>
+		     
+		    <form:label path="password">password</form:label>
+		    <form:input path="password" type="password" />
+		     
+		    <input type="submit" value="Login" />
+	</form:form>
 		${error}
 	</div>	
 	
