@@ -1,7 +1,24 @@
 package io.timesheet.ts.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "Login")
 public class Login {
+	@Id
+	private int id;
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	@Column(name="username",nullable=false)
 	private String username;
+	@Column(name="password",nullable=false)
 	private String password;
 	public Login() {}
 	public Login(String username, String password) {
