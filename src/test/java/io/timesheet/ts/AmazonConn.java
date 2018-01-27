@@ -11,7 +11,7 @@ public class AmazonConn {
 	public static void main(String[] args) {
 		String databaseURL = "jdbc:mysql://mycollection-db.cw0za9eki65f.us-east-1.rds.amazonaws.com/StudentDB";
         String user = "mycollection_db";
-        String password = "mycollection_db2";
+        String password = "Hi1234";
         Connection conn = null;
         String name;
         try {
